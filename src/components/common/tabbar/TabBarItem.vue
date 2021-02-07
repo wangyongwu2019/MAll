@@ -1,8 +1,8 @@
 <template>
   <div class="tab-bar-item" @click="itemClick">
-    <div v-if="!isActive"><slot name="itme-icon"></slot></div>
-    <div v-else><slot name="itme-icon-active"></slot></div>
-    <div :style="activeStyle"><slot name="itme-text"></slot></div>
+    <div v-show="!isActive"><slot name="icon"></slot></div>
+    <div v-show="isActive"><slot name="active-icon"></slot></div>
+    <div :style="activeStyle"><slot name="text"></slot></div>
   </div>
 </template>
 
@@ -26,9 +26,7 @@
     },
     methods: {
       itemClick() {
-        if (this.$router.path !== this.path){
-          this.$router.replace(this.path)
-        }
+        this.$router.replace(this.path)
       }
     }
   }

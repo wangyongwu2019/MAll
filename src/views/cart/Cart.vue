@@ -3,9 +3,9 @@
 </template>
 
 <script>
-export default {
-  name: "Shopcar"
-}
+  export default {
+    name: "Cart"
+  }
 </script>
 
 <style scoped>

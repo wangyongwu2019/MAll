@@ -1,6 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+
+//replace
+const RouterReplace = VueRouter.prototype.replace
+VueRouter.prototype.replace = function replace (to) {
+  return RouterReplace.call(this, to).catch(err => err)
+}
 const Home = () => import('views/home/Home')
 const Category = () => import('views/category/Category')
 const Cart = () => import('views/cart/Cart')
